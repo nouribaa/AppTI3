@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCorrespondpfTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCorrespondpfEmpty}" rendered="#{correspondpfController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{correspondpfController.items.rowCount > 0}">
+                    <h:outputText value="#{correspondpfController.pagination.pageFirstItem + 1}..#{correspondpfController.pagination.pageLastItem + 1}/#{correspondpfController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{correspondpfController.previous}" value="#{bundle.Previous} #{correspondpfController.pagination.pageSize}" rendered="#{correspondpfController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{correspondpfController.next}" value="#{bundle.Next} #{correspondpfController.pagination.pageSize}" rendered="#{correspondpfController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{correspondpfController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCorrespondpfTitle_idCorpf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCorpf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCorrespondpfTitle_pf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCorrespondpfTitle_taux}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.taux}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{correspondpfController.prepareView}" value="#{bundle.ListCorrespondpfViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{correspondpfController.prepareEdit}" value="#{bundle.ListCorrespondpfEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{correspondpfController.destroy}" value="#{bundle.ListCorrespondpfDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{correspondpfController.prepareCreate}" value="#{bundle.ListCorrespondpfCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCorrespondpfIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

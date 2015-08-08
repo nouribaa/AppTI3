@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrdreMissionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_idOrdre}" for="idOrdre" />
+                    <h:inputText id="idOrdre" value="#{ordreMissionController.selected.idOrdre}" title="#{bundle.EditOrdreMissionTitle_idOrdre}" required="true" requiredMessage="#{bundle.EditOrdreMissionRequiredMessage_idOrdre}"/>
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_montant}" for="montant" />
+                    <h:inputText id="montant" value="#{ordreMissionController.selected.montant}" title="#{bundle.EditOrdreMissionTitle_montant}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_ville}" for="ville" />
+                    <h:inputText id="ville" value="#{ordreMissionController.selected.ville}" title="#{bundle.EditOrdreMissionTitle_ville}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_dateAller}" for="dateAller" />
+                    <h:inputText id="dateAller" value="#{ordreMissionController.selected.dateAller}" title="#{bundle.EditOrdreMissionTitle_dateAller}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_heureAller}" for="heureAller" />
+                    <h:inputText id="heureAller" value="#{ordreMissionController.selected.heureAller}" title="#{bundle.EditOrdreMissionTitle_heureAller}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_objetMission}" for="objetMission" />
+                    <h:inputText id="objetMission" value="#{ordreMissionController.selected.objetMission}" title="#{bundle.EditOrdreMissionTitle_objetMission}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_moyenTransport}" for="moyenTransport" />
+                    <h:inputText id="moyenTransport" value="#{ordreMissionController.selected.moyenTransport}" title="#{bundle.EditOrdreMissionTitle_moyenTransport}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_kilometres}" for="kilometres" />
+                    <h:inputText id="kilometres" value="#{ordreMissionController.selected.kilometres}" title="#{bundle.EditOrdreMissionTitle_kilometres}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_num}" for="num" />
+                    <h:inputText id="num" value="#{ordreMissionController.selected.num}" title="#{bundle.EditOrdreMissionTitle_num}" />
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_trim1}" for="trim1" />
+                    <h:selectOneMenu id="trim1" value="#{ordreMissionController.selected.trim1}" title="#{bundle.EditOrdreMissionTitle_trim1}" required="true" requiredMessage="#{bundle.EditOrdreMissionRequiredMessage_trim1}">
+                        <f:selectItems value="#{trimestreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOrdreMissionLabel_person}" for="person" />
+                    <h:selectOneMenu id="person" value="#{ordreMissionController.selected.person}" title="#{bundle.EditOrdreMissionTitle_person}" required="true" requiredMessage="#{bundle.EditOrdreMissionRequiredMessage_person}">
+                        <f:selectItems value="#{personnelController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{ordreMissionController.update}" value="#{bundle.EditOrdreMissionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOrdreMissionViewLink}"/>
+                <br />
+                <h:commandLink action="#{ordreMissionController.prepareList}" value="#{bundle.EditOrdreMissionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOrdreMissionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

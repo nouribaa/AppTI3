@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListJourFeriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListJourFeriesEmpty}" rendered="#{jourFeriesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{jourFeriesController.items.rowCount > 0}">
+                    <h:outputText value="#{jourFeriesController.pagination.pageFirstItem + 1}..#{jourFeriesController.pagination.pageLastItem + 1}/#{jourFeriesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{jourFeriesController.previous}" value="#{bundle.Previous} #{jourFeriesController.pagination.pageSize}" rendered="#{jourFeriesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{jourFeriesController.next}" value="#{bundle.Next} #{jourFeriesController.pagination.pageSize}" rendered="#{jourFeriesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{jourFeriesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListJourFeriesTitle_idF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idF}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListJourFeriesTitle_jourDepart}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.jourDepart}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListJourFeriesTitle_nbrJours}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nbrJours}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListJourFeriesTitle_evenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{jourFeriesController.prepareView}" value="#{bundle.ListJourFeriesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{jourFeriesController.prepareEdit}" value="#{bundle.ListJourFeriesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{jourFeriesController.destroy}" value="#{bundle.ListJourFeriesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{jourFeriesController.prepareCreate}" value="#{bundle.ListJourFeriesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListJourFeriesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
