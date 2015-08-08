@@ -26,8 +26,8 @@
 
         <!-- Specific Page Vendor CSS -->
         <link rel="stylesheet" href="../../resources/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.css" />
-        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
+	<link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.css" />
+	<link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
         <!-- Theme CSS -->
         <link rel="stylesheet" href="../../resources/assets/stylesheets/theme.css" ></link>
 
@@ -183,244 +183,264 @@
 
 
                 <section role="main" class="content-body">
-                    <header class="page-header">
-                        <h2>Calendrier</h2>
+					<header class="page-header">
+						<h2>Calendrier</h2>
+					
+						<div class="right-wrapper pull-right">
+							<ol class="breadcrumbs">
+								<li>
+									<a href="index.html">
+										<i class="fa fa-home"></i>
+									</a>
+								</li>
+								<li><span>Paramétrage</span></li>
+								<li><span>Jours fériés</span></li>
+							</ol>
+					
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+						</div>
+					</header>
 
-                        <div class="right-wrapper pull-right">
-                            <ol class="breadcrumbs">
-                                <li>
-                                    <a href="index.html">
-                                        <i class="fa fa-home"></i>
-                                    </a>
-                                </li>
-                                <li><span>Paramétrage</span></li>
-                                <li><span>Jours fériés</span></li>
-                            </ol>
-
-                            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
-                        </div>
-                    </header>
-
-                    <!-- start: page -->
-                    <section class="panel col-md-6">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div id="calendar"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </section>
-
-                    <h:form class="form-horizontal form-bordered">
-                        <section class="panel col-md-6">
-                            <header class="panel-heading">
-                                <div class="panel-actions">
-                                    <a href="#" class="fa fa-caret-down"></a>
-                                    <a href="#" class="fa fa-times"></a>
-                                </div>
-
-                                <h2 class="panel-title">Ajouter des jours fériés</h2>
-                            </header>
-                            <div style="display: none;">
-                                <h:inputText id="idF" value="#{jourFeriesController.selected.idF}" styleClass="myInputStyleClass" />
-                            </div>
-
-                            <div class="panel-body">
-
-
-                                <div class="form-group">
-                                    <label class="col-md-5 control-label" for="inputDefault">Nom d'événement :</label>
-                                    <div class="col-md-7">
-                                        <h:inputText class="form-control" id="evenement" value="#{jourFeriesController.selected.evenement}" title="#{bundle.CreateJourFeriesTitle_evenement}" />
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-5 control-label">Date du début :</label>
-                                    <div class="col-md-7">
-
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <h:inputText styleClass="datepicker form-control" id="jourDepart" value="#{jourFeriesController.selected.jourDepart}" title="#{bundle.CreateJourFeriesTitle_jourDepart}" >
-                                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                                            </h:inputText>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-5 control-label" for="inputDefault">Nombre de jours :</label>
-                                    <div class="col-md-7">
-                                        <h:inputText class="form-control" id="nbrJours" value="#{jourFeriesController.selected.nbrJours}" title="#{bundle.CreateJourFeriesTitle_nbrJours}" />
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <footer class="panel-footer">
-                                <div class="row">
-                                    <div class="col-sm-12 col-sm-offset-3">
-                                        <h:commandButton class="btn btn-primary" action="#{jourFeriesController.create}" value="Ajouter" />
-                                        <button type="reset" class="btn btn-default" onClick="init()">Réinitialiser</button>
-                                    </div>
-                                </div>
-                            </footer>
-                        </section>
-                    </h:form>					<!-- end: page -->
-                </section>
+					<!-- start: page -->
+					<section class="panel col-md-6">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div id="calendar"></div>
+								</div>
+								
+							</div>
+						</div>
+					</section>
+                                        
+                                        <h:form class="form-horizontal form-bordered">
+                                                                 <section class="panel col-md-6">
+                                                                     <header class="panel-heading">
+										<div class="panel-actions">
+											<a href="#" class="fa fa-caret-down"></a>
+											<a href="#" class="fa fa-times"></a>
+										</div>
+						
+										<h2 class="panel-title">Ajouter des jours fériés</h2>
+									</header>
+                                                                    <div style="display: none;">
+                                                                        <h:inputText id="idF" value="#{jourFeriesController.selected.idF}" styleClass="myInputStyleClass" />
+                                                                    </div>
+                                                                                                
+                                                                     <div class="panel-body">
+                                                                     
+												
+                                                                                                    <div class="form-group">
+												<label class="col-md-5 control-label" for="inputDefault">Nom d'événement :</label>
+												<div class="col-md-7">
+												  <h:inputText class="form-control" id="evenement" value="#{jourFeriesController.selected.evenement}" title="#{bundle.CreateJourFeriesTitle_evenement}" />
+	
+												</div>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div class="form-group">
+                                                                                                <label class="col-md-5 control-label">Date du début :</label>
+												<div class="col-md-7">
+                                                                                                    
+                                                                                                    <div class="input-group">
+														<span class="input-group-addon">
+															<i class="fa fa-calendar"></i>
+														</span>
+                                                                                                        <h:inputText styleClass="datepicker form-control" id="jourDepart" value="#{jourFeriesController.selected.jourDepart}" title="#{bundle.CreateJourFeriesTitle_jourDepart}" >
+                                                                                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                                                                        </h:inputText>
+														
+                                                                                                    </div>
+												</div>
+                                                                                                </div>
+                                                                                                    
+											<div class="form-group">
+												<label class="col-md-5 control-label" for="inputDefault">Nombre de jours :</label>
+												<div class="col-md-7">
+												                    <h:inputText class="form-control" id="nbrJours" value="#{jourFeriesController.selected.nbrJours}" title="#{bundle.CreateJourFeriesTitle_nbrJours}" />
+	
+												</div>
+                                                                                                </div>
+                                                                                                    
+                                                                                               
+                                                                     </div>
+                                                                     <footer class="panel-footer">
+                                                                                                            <div class="row">
+                                                                                                                    <div class="col-sm-12 col-sm-offset-3">
+                                                                                                                        <h:commandButton class="btn btn-primary" action="#{jourFeriesController.create}" value="Ajouter" />
+                                                                                                                            <button type="reset" class="btn btn-default" onClick="init()">Réinitialiser</button>
+                                                                                                                    </div>
+                                                                                                            </div>
+                                                                                                    </footer>
+								</section>
+                                        </h:form>					<!-- end: page -->
+				</section>
             </div>
+            
+<script language="JavaScript">
 
-            <script language="JavaScript">
+function init()
+{
+$('#evenement').val('');
+$('#jourDepart').val('');
+$('#nbrJours').val('');
+}
 
-                        function init()
-                                {
-                                $('#evenement').val('');
-                                        $('#jourDepart').val('');
-                                        $('#nbrJours').val('');
-                                        }
+</script> 
 
-            </script> 
+<!-- Vendor -->
+		<script src="../../resources/assets/vendor/jquery/jquery.js"></script>
+		<script src="../../resources/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="../../resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="../../resources/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="../../resources/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="../../resources/assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		
+                <!-- Examples -->
+                <script>
+                    
+(function( $ ) {
 
-            <!-- Vendor -->
-            <script src="../../resources/assets/vendor/jquery/jquery.js"></script>
-            <script src="../../resources/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-            <script src="../../resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
-            <script src="../../resources/assets/vendor/nanoscroller/nanoscroller.js"></script>
-            <script src="../../resources/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-            <script src="../../resources/assets/vendor/magnific-popup/magnific-popup.js"></script>
-            <script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+	'use strict';
+ //For calendar
+    $(".datepicker").datepicker({
+        inline: true,
+        showWeek: true,
+        firstDay: 1
+    });
+     $('.myInputStyleClass').val('#{jourFeriesController.max}');
 
-            <!-- Examples -->
-            <script>
+	var initCalendarDragNDrop = function() {
+		$('#external-events div.external-event').each(function() {
 
-                (function($) {
+			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+			// it doesn't need to have a start or end
+			var eventObject = {
+				title: $.trim($(this).text()) // use the element's text as the event title
+			};
 
-                'use strict';
-                        //For calendar
-                        $(".datepicker").datepicker({
-                inline: true,
-                        showWeek: true,
-                        firstDay: 1
-                });
-                        $('.myInputStyleClass').val('#{jourFeriesController.max}');
-                        var initCalendarDragNDrop = function() {
-                        $('#external-events div.external-event').each(function() {
+			// store the Event Object in the DOM element so we can get to it later
+			$(this).data('eventObject', eventObject);
 
-                        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-                        // it doesn't need to have a start or end
-                        var eventObject = {
-                        title: $.trim($(this).text()) // use the element's text as the event title
-                        };
-                                // store the Event Object in the DOM element so we can get to it later
-                                $(this).data('eventObject', eventObject);
-                                // make the event draggable using jQuery UI
-                                $(this).draggable({
-                        zIndex: 999,
-                                revert: true, // will cause the event to go back to its
-                                revertDuration: 0  //  original position after the drag
-                        });
-                        });
-                        };
-                        var initCalendar = function() {
-                        var $calendar = $('#calendar');
-                                var date = new Date();
-                                var d = date.getDate();
-                                var m = date.getMonth();
-                                var y = date.getFullYear();
-                                $calendar.fullCalendar({
-                                header: {
-                                left: 'title',
-                                        right: 'prev,today,next,basicDay,basicWeek,month'
-                                },
-                                        timeFormat: 'h:mm',
-                                        titleFormat: {
-                                        month: 'MMMM YYYY', // September 2009
-                                                week: "MMM d YYYY", // Sep 13 2009
-                                                day: 'dddd, MMM d, YYYY' // Tuesday, Sep 8, 2009
-                                        },
-                                        themeButtonIcons: {
-                                        prev: 'fa fa-caret-left',
-                                                next: 'fa fa-caret-right',
-                                        },
-                                        editable: true,
-                                        droppable: true, // this allows things to be dropped onto the calendar !!!
-                                        drop: function(date, allDay) { // this function is called when something is dropped
-                                        var $externalEvent = $(this);
-                                                // retrieve the dropped element's stored Event Object
-                                                var originalEventObject = $externalEvent.data('eventObject');
-                                                // we need to copy it, so that multiple events don't have a reference to the same object
-                                                var copiedEventObject = $.extend({}, originalEventObject);
-                                                // assign it the date that was reported
-                                                copiedEventObject.start = date;
-                                                copiedEventObject.allDay = allDay;
-                                                copiedEventObject.className = $externalEvent.attr('data-event-class');
-                                                // render the event on the calendar
-                                                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                                                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-                                                // is the "remove after drop" checkbox checked?
-                                                if ($('#RemoveAfterDrop').is(':checked')) {
-                                        // if so, remove the element from the "Draggable Events" list
-                                        $(this).remove();
-                                        }
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
 
-                                        },
-                                        events: [
+		});
+	};
 
-                                                < c:forEach items = "#{jourFeriesController.all}" var = "jour" >
-                                         {
-                                            title: '${jour.evenement}',
-                                                    start: new Date(${jour.annee}, ${jour.mois}, ${jour.jour}),
-                                                end: new Date(${jour.annee}, ${jour.mois},${jour.jour+jour.nbrJours})
-                                        },
-                                                < /c:forEach> 
-                                        {
-                                        title: 'fete1',
-                                                start: new Date(2010, 1, 1),
-                                                end: new Date(2010, 1, 1)
-                                        }
-                                        ]
-                                });
-                                // FIX INPUTS TO BOOTSTRAP VERSIONS
-                                var $calendarButtons = $calendar.find('.fc-header-right > span');
-                                $calendarButtons
-                                .filter('.fc-button-prev, .fc-button-today, .fc-button-next')
-                                .wrapAll('<div class="btn-group mt-sm mr-md mb-sm ml-sm"></div>')
-                                .parent()
-                                .after('<br class="hidden"/>');
-                                $calendarButtons
-                                .not('.fc-button-prev, .fc-button-today, .fc-button-next')
-                                .wrapAll('<div class="btn-group mb-sm mt-sm"></div>');
-                                $calendarButtons
-                                .attr({ 'class': 'btn btn-sm btn-default' });
-                        };
-                        $(function() {
-                        initCalendar();
-                                initCalendarDragNDrop();
-                        });
-                        }).apply(this, [ jQuery ]);                </script>
-            <!-- Specific Page Vendor -->
-            <script src="../../resources/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
-            <script src="../../resources/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
-            <script src="../../resources/assets/vendor/fullcalendar/lib/moment.min.js"></script>
-            <script src="../../resources/assets/vendor/fullcalendar/fullcalendar.js"></script>
+	var initCalendar = function() {
+		var $calendar = $('#calendar');
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
 
-            <!-- Theme Base, Components and Settings -->
-            <script src="../../resources/assets/javascripts/theme.js"></script>
+		$calendar.fullCalendar({
+			header: {
+				left: 'title',
+				right: 'prev,today,next,basicDay,basicWeek,month'
+			},
 
-            <!-- Theme Custom -->
-            <script src="../../resources/assets/javascripts/theme.custom.js"></script>
+			timeFormat: 'h:mm',
 
-            <!-- Theme Initialization Files -->
-            <script src="../../resources/assets/javascripts/theme.init.js"></script>
+			titleFormat: {
+				month: 'MMMM YYYY',      // September 2009
+			    week: "MMM d YYYY",      // Sep 13 2009
+			    day: 'dddd, MMM d, YYYY' // Tuesday, Sep 8, 2009
+			},
 
+			themeButtonIcons: {
+				prev: 'fa fa-caret-left',
+				next: 'fa fa-caret-right',
+			},
 
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar !!!
+			drop: function(date, allDay) { // this function is called when something is dropped
+				var $externalEvent = $(this);
+				// retrieve the dropped element's stored Event Object
+				var originalEventObject = $externalEvent.data('eventObject');
+
+				// we need to copy it, so that multiple events don't have a reference to the same object
+				var copiedEventObject = $.extend({}, originalEventObject);
+
+				// assign it the date that was reported
+				copiedEventObject.start = date;
+				copiedEventObject.allDay = allDay;
+				copiedEventObject.className = $externalEvent.attr('data-event-class');
+
+				// render the event on the calendar
+				// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+				$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+				// is the "remove after drop" checkbox checked?
+				if ($('#RemoveAfterDrop').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+
+			},
+			events: [
+				
+                <c:forEach items="#{jourFeriesController.all}" var="jour" >
+                {
+					title: '${jour.evenement}',
+					start: new Date(${jour.annee}, ${jour.mois}, ${jour.jour}),
+					end: new Date(${jour.annee}, ${jour.mois},${jour.jour+jour.nbrJours})
+				},
+                                        </c:forEach> 
+				{
+					title: 'fete1',
+					start: new Date(2010, 1, 1),
+					end: new Date(2010, 1, 1)
+				}
+			]
+		});
+
+		// FIX INPUTS TO BOOTSTRAP VERSIONS
+		var $calendarButtons = $calendar.find('.fc-header-right > span');
+		$calendarButtons
+			.filter('.fc-button-prev, .fc-button-today, .fc-button-next')
+				.wrapAll('<div class="btn-group mt-sm mr-md mb-sm ml-sm"></div>')
+				.parent()
+				.after('<br class="hidden"/>');
+
+		$calendarButtons
+			.not('.fc-button-prev, .fc-button-today, .fc-button-next')
+				.wrapAll('<div class="btn-group mb-sm mt-sm"></div>');
+
+		$calendarButtons
+			.attr({ 'class': 'btn btn-sm btn-default' });
+	};
+
+	$(function() {
+		initCalendar();
+		initCalendarDragNDrop();
+	});
+
+}).apply(this, [ jQuery ]);
+                </script>
+		<!-- Specific Page Vendor -->
+		<script src="../../resources/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+		<script src="../../resources/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+		<script src="../../resources/assets/vendor/fullcalendar/lib/moment.min.js"></script>
+		<script src="../../resources/assets/vendor/fullcalendar/fullcalendar.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="../../resources/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="../../resources/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="../../resources/assets/javascripts/theme.init.js"></script>
+
+		
 
         </section>
     </body>

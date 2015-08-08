@@ -216,7 +216,7 @@
                             
                                
                             <h:form>
-                            <h:dataTable value="#{correspondrepasController.items}" class="table table-bordered table-striped mb-none" id="datatable-editable" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                            <h:dataTable value="#{correspondrepasController.items}" class="table table-bordered table-striped mb-none" id="datatable-editable" var="item" >
                         
                         <h:column>
                             <f:facet name="header">
@@ -226,13 +226,13 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="TAux"/>
+                                <h:outputText value="Taux en Dh pendant les 15 premiers jours"/>
                             </f:facet>
                             <h:outputText value="#{item.taux15}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCorrespondrepasTitle_taux16}"/>
+                                <h:outputText value="Taux en Dh à compter du 16ème jour dans la même localité"/>
                             </f:facet>
                             <h:outputText value="#{item.taux16}"/>
                         </h:column>
