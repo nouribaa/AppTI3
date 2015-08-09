@@ -31,7 +31,7 @@
                     <h:inputText id="residence" value="#{personnelController.selected.residence}" title="#{bundle.CreatePersonnelTitle_residence}" />
                     <h:outputLabel value="#{bundle.CreatePersonnelLabel_echelle}" for="echelle" />
                     <h:selectOneMenu id="echelle" value="#{personnelController.selected.echelle}" title="#{bundle.CreatePersonnelTitle_echelle}" required="true" requiredMessage="#{bundle.CreatePersonnelRequiredMessage_echelle}">
-                        <f:selectItems value="#{correspondrepasController.itemsAvailableSelectOne}"/>
+                        <f:selectItems value="#{correspondrepasController.itemsAvailableSelectOne}" var="model" itemLabel="#{model.echelle}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />

@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -40,8 +42,12 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Personnel.findBySexe", query = "SELECT p FROM Personnel p WHERE p.sexe = :sexe"),
     @NamedQuery(name = "Personnel.findByResidence", query = "SELECT p FROM Personnel p WHERE p.residence = :residence")})
 public class Personnel implements Serializable {
+    @Size(max = 500)
+    @Column(name = "grade")
+    private String grade;
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "idPerson")
@@ -73,8 +79,10 @@ public class Personnel implements Serializable {
     @JoinColumn(name = "echelle", referencedColumnName = "echelle")
     @ManyToOne(optional = false)
     private Correspondrepas echelle;
+    
 
     public Personnel() {
+        
     }
 
     public Personnel(Integer idPerson) {
@@ -192,5 +200,14 @@ public class Personnel implements Serializable {
     public String toString() {
         return "beans.Personnel[ idPerson=" + idPerson + " ]";
     }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+    	
     
 }

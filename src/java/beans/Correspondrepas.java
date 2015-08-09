@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -35,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Correspondrepas.findByTaux16", query = "SELECT c FROM Correspondrepas c WHERE c.taux16 = :taux16")})
 public class Correspondrepas implements Serializable {
     private static final long serialVersionUID = 1L;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "idCor")
@@ -126,7 +129,7 @@ public class Correspondrepas implements Serializable {
 
     @Override
     public String toString() {
-        return "beans.Correspondrepas[ echelle=" + echelle + " ]";
+        return echelle.toString();
     }
     
 }

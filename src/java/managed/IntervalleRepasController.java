@@ -6,6 +6,7 @@ import managed.util.PaginationHelper;
 import session.IntervalleRepasFacade;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -100,7 +101,7 @@ public class IntervalleRepasController implements Serializable {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("IntervalleRepasUpdated"));
-            return "View";
+            return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
@@ -187,7 +188,7 @@ public class IntervalleRepasController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-
+    
     @FacesConverter(forClass = IntervalleRepas.class)
     public static class IntervalleRepasControllerConverter implements Converter {
 

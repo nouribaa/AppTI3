@@ -1,5 +1,6 @@
 package managed.util;
 
+import beans.Correspondrepas;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -22,6 +23,8 @@ public class JsfUtil {
         }
         return items;
     }
+    
+    
 
     public static void addErrorMessage(Exception ex, String defaultMsg) {
         String msg = ex.getLocalizedMessage();

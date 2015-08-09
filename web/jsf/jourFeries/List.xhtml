@@ -223,9 +223,7 @@
 						
 										<h2 class="panel-title">Ajouter des jours fériés</h2>
 									</header>
-                                                                    <div style="display: none;">
-                                                                        <h:inputText id="idF" value="#{jourFeriesController.selected.idF}" styleClass="myInputStyleClass" />
-                                                                    </div>
+                                                                    
                                                                                                 
                                                                      <div class="panel-body">
                                                                      
@@ -276,9 +274,8 @@
                                         </h:form>					<!-- end: page -->
 				</section>
             </div>
-            
+        
 <script language="JavaScript">
-
 function init()
 {
 $('#evenement').val('');
@@ -287,6 +284,7 @@ $('#nbrJours').val('');
 }
 
 </script> 
+           
 
 <!-- Vendor -->
 		<script src="../../resources/assets/vendor/jquery/jquery.js"></script>
@@ -298,18 +296,22 @@ $('#nbrJours').val('');
 		<script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		
                 <!-- Examples -->
+                  <script>
+                //For calendar
+ $(".datepicker").datepicker({
+        inline: true,
+        showWeek: true,
+        firstDay: 1
+    });
+                </script>  
+                
                 <script>
                     
 (function( $ ) {
 
 	'use strict';
- //For calendar
-    $(".datepicker").datepicker({
-        inline: true,
-        showWeek: true,
-        firstDay: 1
-    });
-     $('.myInputStyleClass').val('#{jourFeriesController.max}');
+ 
+     
 
 	var initCalendarDragNDrop = function() {
 		$('#external-events div.external-event').each(function() {

@@ -126,10 +126,7 @@
                     $row;
 
             actions = [
-                '<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>',
-                '<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>',
-                '<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>',
-                '<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>'
+                '<h:inputText class="form-control" id="taux" value="#{ordreMissionController.selected.taux}" title="#{bundle.CreateCorrespondrepasTitle_taux15}" />'
             ].join(' ');
 
             data = this.datatable.row.add(['', '', '', '', '', '', '', '', actions]);
@@ -178,7 +175,7 @@
             $row.find('td:nth-child(5)').html('<input type="text" class="form-control input-block" value="' + data[4] + '"/>');
             $row.find('td:nth-child(6)').html('<input type="text" class="form-control input-block" value="' + data[5] + '"/>');
             $row.find('td:nth-child(7)').html('<select data-plugin-selectTwo class="form-control populate"><option value="1">Voiture perso</option><option value="2">Voiture de service</option></select>');
-            $row.find('td:nth-child(8)').html('<input type="text" class="form-control input-block" value="' + data[7] + '"/>');
+            $row.find('td:nth-child(8)').html('<h:inputText class="form-control" id="taux" value="#{ordreMissionController.selected.taux}" title="#{bundle.CreateCorrespondrepasTitle_taux15}" />' );
 
             _self.rowSetActionsEditing($row);
 

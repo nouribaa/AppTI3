@@ -78,7 +78,7 @@ public class OrdreMissionController implements Serializable {
     public String prepareCreate() {
         current = new OrdreMission();
         selectedItemIndex = -1;
-        return "Create";
+        return "List";
     }
 
     public String create() {
