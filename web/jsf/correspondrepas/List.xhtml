@@ -203,7 +203,7 @@
 
                     <!-- start: page -->
                     <!-- start: page -->
-                    <section class="panel">
+                    <section class="panel panel-featured panel-featured-primary">
                         <header class="panel-heading">
                             <div class="panel-actions">
                                 <a href="#" class="fa fa-caret-down"></a>
@@ -213,93 +213,99 @@
                             <h2 class="panel-title">Montant d'un repas pour chaque échelle</h2>
                         </header>
                         <div class="panel-body">
-                            
-                               
+
+
                             <h:form>
-                            <h:dataTable value="#{correspondrepasController.items}" class="table table-bordered table-striped mb-none" id="datatable-editable" var="item" >
-                        
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCorrespondrepasTitle_echelle}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.echelle}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Taux en Dh pendant les 15 premiers jours"/>
-                            </f:facet>
-                            <h:outputText value="#{item.taux15}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Taux en Dh à compter du 16ème jour dans la même localité"/>
-                            </f:facet>
-                            <h:outputText value="#{item.taux16}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Actions"/>
-                            </f:facet>
-                            <h:commandLink type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-primary" 
-                                    action="#{correspondrepasController.prepareEdit}" >
-                                    <i class="fa fa-pencil"></i> 
-                            </h:commandLink>
-                            <h:commandLink type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-danger" 
-                                    action="#{correspondrepasController.destroy}"
-                                     onclick="if(confirm('Vous voulez vraiment supprimer cette ligne du tableau ?'))return true; else return false;">
-                                    <i class="fa fa-times"></i> 
-                            </h:commandLink>
-                            </h:column>
-                    </h:dataTable>
-                                </h:form> 
+                                <h:dataTable value="#{correspondrepasController.items}" class="table table-striped mb-none" id="datatable-editable" var="item" >
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListCorrespondrepasTitle_echelle}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.echelle}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Taux en Dh pendant les 15 premiers jours"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.taux15}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Taux en Dh à compter du 16ème jour dans la même localité"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.taux16}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:passThroughAttribute name="class" value="actions" />
+
+                                        <f:facet name="header">
+                                            <h:outputText value="Actions"/>
+                                        </f:facet>
+                                        &nbsp;
+                                        <h:commandLink  class="on-default edit-row" 
+                                                        action="#{correspondrepasController.prepareEdit}" >
+                                            <i class="fa fa-pencil"></i> 
+                                        </h:commandLink> &nbsp;
+                                        <h:commandLink type="button" class="on-default remove-row" 
+                                                       action="#{correspondrepasController.destroy}"
+                                                       onclick="if (confirm('Vous voulez vraiment supprimer cette ligne du tableau ?'))
+                                                 return true;
+                                             else
+                                                 return false;">
+                                            <i class="fa fa-trash-o"></i> 
+                                        </h:commandLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form> 
                         </div>
                     </section>
                     <!-- end: page -->
-<h:form id="summary-form"  class="form-horizontal col-md-12">
-								<section class="panel">
-									<header class="panel-heading">
-										<div class="panel-actions">
-											<a href="#" class="fa fa-caret-down"></a>
-											<a href="#" class="fa fa-times"></a>
-										</div>
+                    <h:form   class="form-horizontal">
+                        <section class="panel  panel-featured panel-featured-primary">
+                            <header class="panel-heading">
+                                <div class="panel-actions">
+                                    <a href="#" class="fa fa-caret-down"></a>
 
-										<h2 class="panel-title">Ajouter un montant</h2>
-										
-									</header>
-									<div class="panel-body">
-										<div class="validation-message">
-											<ul></ul>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Echelle: <span class="required">*</span></label>
-											<div class="col-sm-9">
-												  <h:inputText class="form-control" id="echelle" value="#{correspondrepasController.selected.echelle}" title="#{bundle.CreateCorrespondrepasRequiredMessage_echelle}" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Taux en Dh pendant les 15 premiers jours: <span class="required">*</span></label>
-											<div class="col-sm-9">
-												  <h:inputText class="form-control" id="taux15" value="#{correspondrepasController.selected.taux15}" title="#{bundle.CreateCorrespondrepasTitle_taux15}" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Taux en Dh à compter du 16ème jour dans la même localité<span class="required">*</span></label>
-											<div class="col-sm-9">
-												  <h:inputText class="form-control" id="taux16" value="#{correspondrepasController.selected.taux16}" title="#{bundle.CreateCorrespondrepasTitle_taux16}" />
-											</div>
-										</div>
-										
-									</div>
-									<footer class="panel-footer">
-										<div class="row">
-											<div class="col-sm-9 col-sm-offset-3">
-												 <h:commandButton class="btn btn-primary" action="#{correspondrepasController.create}" value="Ajouter" />&nbsp;
-                                                                                                 <h:commandButton type="reset" class="btn btn-default" action="#{correspondrepasController.reinit}" value="Réinitialiser" />
-                                                                                        </div>
-										</div>
-									</footer>
-								</section>
-							</h:form>
+                                </div>
+
+                                <h2 class="panel-title">Ajouter un montant</h2>
+
+                            </header>
+                            <div class="panel-body">
+                                <div class="validation-message">
+                                    <ul></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Echelle: <span class="required">*</span></label>
+                                    <div class="col-sm-4">
+                                        <h:inputText class="form-control" id="echelle" value="#{correspondrepasController.selected.echelle}" title="#{bundle.CreateCorrespondrepasRequiredMessage_echelle}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Taux en Dh pendant les 15 premiers jours: <span class="required">*</span></label>
+                                    <div class="col-sm-4">
+                                        <h:inputText class="form-control" id="taux15" value="#{correspondrepasController.selected.taux15}" title="#{bundle.CreateCorrespondrepasTitle_taux15}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Taux en Dh à compter du 16ème jour dans la même localité: <span class="required">*</span></label>
+                                    <div class="col-sm-4">
+                                        <h:inputText class="form-control" id="taux16" value="#{correspondrepasController.selected.taux16}" title="#{bundle.CreateCorrespondrepasTitle_taux16}" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <footer class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-9 col-sm-offset-5">
+                                        <h:commandButton class="btn btn-primary" action="#{correspondrepasController.create}" value="Ajouter" />&nbsp;
+                                        <h:commandButton type="reset" class="btn btn-default" action="#{correspondrepasController.reinit}" value="Réinitialiser" />
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                    </h:form>
                     <!-- end: page -->
                 </section>
             </div>
@@ -307,11 +313,11 @@
 
 
 
-            
 
 
 
-            
+
+
 
 
 

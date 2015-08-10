@@ -12375,6 +12375,12 @@ html.dark .simple-compose-box .compose-box-footer {
 	margin-right: 5px;
 	color: #666;
 }
+.table .actions a.conf,
+.table .actions-hover a.conf{
+	display: inline-block;
+	margin-right: 5px;
+	color: #ffffff;
+}
 
 .table .actions a:last-child,
 .table .actions-hover a:last-child {

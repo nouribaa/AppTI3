@@ -1,5 +1,6 @@
 package managed;
 
+import beans.Correspondrepas;
 import beans.Personnel;
 import managed.util.JsfUtil;
 import managed.util.PaginationHelper;
@@ -74,10 +75,17 @@ public class PersonnelController implements Serializable {
         return "View";
     }
 
-    public String prepareCreate() {
+    public String linkCreate() {
         current = new Personnel();
         selectedItemIndex = -1;
         return "Create";
+    }
+    public String prepareCreate() {
+        current = new Personnel();
+        recreatePagination();
+        recreateModel();
+        selectedItemIndex = -1;
+        return "List";
     }
 
     public String create() {
@@ -101,6 +109,8 @@ public class PersonnelController implements Serializable {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PersonnelUpdated"));
+            recreatePagination();
+        recreateModel();
             return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -187,6 +197,11 @@ public class PersonnelController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+      public void reinit() {
+     current = new Personnel();
+            selectedItemIndex = -1;
+        
     }
 
     @FacesConverter(forClass = Personnel.class)

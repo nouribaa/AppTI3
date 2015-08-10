@@ -112,7 +112,7 @@ public class Correspondpf implements Serializable {
 
     @Override
     public String toString() {
-        return "beans.Correspondpf[ pf=" + pf + " ]";
+            return pf.toString();
     }
     
 }

@@ -104,4 +104,6 @@ public class IntervalleRepas implements Serializable {
         return "beans.IntervalleRepas[ idRepas=" + idRepas + " ]";
     }
     
+    
+    
 }

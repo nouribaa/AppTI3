@@ -63,6 +63,8 @@ public class CorrespondpfController implements Serializable {
     }
 
     public String prepareList() {
+        current = new Correspondpf();
+            selectedItemIndex = -1; 
         recreateModel();
         return "List";
     }
@@ -162,7 +164,7 @@ public class CorrespondpfController implements Serializable {
     }
     public void reinit() {
      current = new Correspondpf();
-            selectedItemIndex = -1;
+            selectedItemIndex = -1; 
         
     }
 

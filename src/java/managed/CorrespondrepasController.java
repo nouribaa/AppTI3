@@ -92,7 +92,11 @@ public class CorrespondrepasController implements Serializable {
             return null;
         }
     }
-
+public void selectOne() {
+        current = (Correspondrepas) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        
+    }
     public String prepareEdit() {
         current = (Correspondrepas) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -104,7 +108,10 @@ public class CorrespondrepasController implements Serializable {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("CorrespondrepasUpdated"));
             current = new Correspondrepas();
-            selectedItemIndex = -1;
+           
+        selectedItemIndex = -1;
+        recreatePagination();
+        recreateModel();
             return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

@@ -10,7 +10,7 @@
         <!-- Basic -->
         <meta charset="UTF-8"></meta>
 
-        <title>Table</title>
+        <title><ui:insert name="Titre">IMANOR</ui:insert></title>
 
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ></meta>
@@ -184,7 +184,7 @@
 
                 <section role="main" class="content-body">
                     <header class="page-header">
-                        <h2>Personnel</h2>
+                        <h2><ui:insert name="Page">Default</ui:insert></h2>
 
                         <div class="right-wrapper pull-right">
                             <ol class="breadcrumbs">
@@ -193,8 +193,8 @@
                                         <i class="fa fa-home"></i>
                                     </a>
                                 </li>
-                                <li><span>Personnel</span></li>
-                                
+                                <li><span><ui:insert name="Page1"></ui:insert></span></li>
+                                <li><span><ui:insert name="Page2"></ui:insert></span></li>
                             </ol>
 
                             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -202,107 +202,9 @@
                     </header>
 
                     <!-- start: page -->
+                    <ui:insert name="body">Contenu de la page</ui:insert>
                     <!-- start: page -->
-                    <section class="panel  panel-featured panel-featured-primary">
-                        <header class="panel-heading">
-                            <div class="panel-actions">
-                                <a href="#" class="fa fa-caret-down"></a>
-
-                            </div>
-
-                            <h2 class="panel-title">Liste du personnel</h2>
-                        </header>
-                        <div class="panel-body">
-                            
-                               
-                            <h:form>
-                                <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="mb-md">
-                                        <h:commandLink type="button"  class="btn btn-primary" 
-                                                       value="Ajouter"
-                                            action="#{personnelController.linkCreate}" >
-                                            <i class="fa fa-plus"></i> 
-                                        </h:commandLink>
-                                    </div>
-                                </div>
-                            </div>
-                            <h:dataTable value="#{personnelController.items}"  class="table table-bordered table-striped mb-none"  var="item" >
-                         <f:passThroughAttribute name="id" value="datatable-default" />
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Matricule"/>
-                            </f:facet>
-                            <h:outputText value="#{item.matricule}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nom"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nom}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Prénom"/>
-                            </f:facet>
-                            <h:outputText value="#{item.prenom}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Sexe"/>
-                            </f:facet>
-                            <h:outputText value="Masculin" rendered="#{item.sexe==1}"/>
-                            <h:outputText value="Féminin" rendered="#{item.sexe==2}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="N° CIN"/>
-                            </f:facet>
-                            <h:outputText value="#{item.cin}"/>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Résidence"/>
-                            </f:facet>
-                            <h:outputText value="#{item.residence}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Grade"/>
-                            </f:facet>
-                            <h:outputText value="#{item.grade}"/>
-                        </h:column>
-                         <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Echelle"/>
-                            </f:facet>
-                            <h:outputText value="#{item.echelle}"/>
-                        </h:column>
-                         
-                        <h:column>
-                            <f:passThroughAttribute name="class" value="actions" />
-
-                            <f:facet name="header">
-                                <h:outputText value="Actions"/>
-                            </f:facet>
-                            &nbsp;
-                            <h:commandLink  class="on-default edit-row" 
-                                    action="#{personnelController.prepareEdit}" >
-                                    <i class="fa fa-pencil"></i> 
-                            </h:commandLink> &nbsp;
-                            <h:commandLink type="button" class="on-default remove-row" 
-                                    action="#{personnelController.destroy}"
-                                     onclick="if(confirm('Vous voulez vraiment supprimer cette ligne du tableau ?'))return true; else return false;">
-                                    <i class="fa fa-trash-o"></i> 
-                            </h:commandLink>
-                            </h:column>
-                    </h:dataTable>
-                                </h:form> 
-                        </div>
-                    </section>
-                    <!-- end: page -->
-
+                   
                     <!-- end: page -->
                 </section>
             </div>
@@ -310,11 +212,11 @@
 
 
 
-            
 
 
 
-            
+
+
 
 
 
@@ -349,3 +251,4 @@
     </body>
 
 </html>
+

@@ -196,11 +196,11 @@
 						</div>
 					</header>
                                             <h:form id="summary-form"  class="form-horizontal col-md-12">
-								<section class="panel">
+								<section class="panel  panel-featured panel-featured-primary">
 									<header class="panel-heading">
 										<div class="panel-actions">
 											<a href="#" class="fa fa-caret-down"></a>
-											<a href="#" class="fa fa-times"></a>
+											
 										</div>
 
 										<h2 class="panel-title">Modifier un personnel</h2>
@@ -213,44 +213,54 @@
 											<ul></ul>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Matricule: <span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Matricule: <span class="required">*</span></label>
 											<div class="col-sm-4">
 												  <h:inputText class="form-control" id="matricule" value="#{personnelController.selected.matricule}" title="Matricule:" />
 											</div>
 										</div>
                                                                             <div class="form-group">
-											<label class="col-sm-3 control-label">Nom: <span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Nom: <span class="required">*</span></label>
 											<div class="col-sm-4">
 												  <h:inputText class="form-control" id="nom" value="#{personnelController.selected.nom}" title="Nom" />
 											</div>
 										</div>
                                                                             <div class="form-group">
-											<label class="col-sm-3 control-label">Prénom: <span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Prénom: <span class="required">*</span></label>
 											<div class="col-sm-4">
 												  <h:inputText class="form-control" id="prenom" value="#{personnelController.selected.prenom}" title="Prénom" />
 											</div>
 										</div>
                                                                             <div class="form-group">
-											<label class="col-sm-3 control-label">N° CIN: <span class="required">*</span></label>
+											<label class="col-sm-5 control-label">N° CIN: <span class="required">*</span></label>
 											<div class="col-sm-4">
 												  <h:inputText class="form-control" id="cin" value="#{personnelController.selected.cin}" title="CIN" />
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Sexe: <span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Sexe: <span class="required">*</span></label>
 											<div class="col-sm-4">
-												  <h:inputText class="form-control" id="sexe" value="#{personnelController.selected.sexe}" title="Sexe" />
+											<h:selectOneMenu class="form-control"  id="sexe" value="#{personnelController.selected.sexe}" title="Echelle" required="true" requiredMessage="#{bundle.EditPersonnelRequiredMessage_echelle}">
+                                                                                            <f:selectItem itemValue="1" itemLabel="Masculin"/>
+                                                                                                                    <f:selectItem itemValue="2" itemLabel="Féminin"/>
+                                                                                                                </h:selectOneMenu>	  
+                                                                                            
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Résidence:<span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Résidence:<span class="required">*</span></label>
 											<div class="col-sm-4">
                                                                                             <h:inputTextarea class="form-control" rows="3" id="residence" value="#{personnelController.selected.residence}" title="Résidence" >
                                                                                             </h:inputTextarea>
 											</div>
 										</div>
                                                                             <div class="form-group">
-											<label class="col-sm-3 control-label">Echelle:<span class="required">*</span></label>
+											<label class="col-sm-5 control-label">Grade: <span class="required">*</span></label>
+											<div class="col-sm-4">
+												  <h:inputText class="form-control" id="grade" value="#{personnelController.selected.grade}" title="Grade" />
+											</div>
+										</div>
+                                                                            <div class="form-group">
+											<label class="col-sm-5 control-label">Echelle:<span class="required">*</span></label>
 											<div class="col-sm-4">
                                                                                             <h:selectOneMenu class="form-control"  id="echelle" value="#{personnelController.selected.echelle}" title="Echelle" required="true" requiredMessage="#{bundle.EditPersonnelRequiredMessage_echelle}">
                                                                                                                     <f:selectItems value="#{correspondrepasController.itemsAvailableSelectOne}"/>
@@ -260,7 +270,7 @@
 									</div>
 									<footer class="panel-footer">
 										<div class="row">
-											<div class="col-sm-9 col-sm-offset-3">
+											<div class="col-sm-9 col-sm-offset-5">
 												 <h:commandButton class="btn btn-primary" action="#{personnelController.update}" value="Modifier" />
                                                                                                 
                                                                                         </div>

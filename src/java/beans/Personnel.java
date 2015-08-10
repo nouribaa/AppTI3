@@ -49,7 +49,6 @@ public class Personnel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idPerson")
     private Integer idPerson;
     @Basic(optional = false)
@@ -198,7 +197,7 @@ public class Personnel implements Serializable {
 
     @Override
     public String toString() {
-        return "beans.Personnel[ idPerson=" + idPerson + " ]";
+        return nom+" "+prenom;
     }
 
     public String getGrade() {

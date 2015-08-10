@@ -10,7 +10,7 @@
         <!-- Basic -->
         <meta charset="UTF-8"></meta>
 
-         <title>HoraireRepas</title>
+        <title>HoraireRepas</title>
 
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ></meta>
@@ -26,8 +26,8 @@
 
         <!-- Specific Page Vendor CSS -->
         <link rel="stylesheet" href="../../resources/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-	<link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.css" />
-	<link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
+        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.css" />
+        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
         <!-- Theme CSS -->
         <link rel="stylesheet" href="../../resources/assets/stylesheets/theme.css" ></link>
 
@@ -179,105 +179,105 @@
 
                 <section role="main" class="content-body">
                     <header class="page-header">
-						<h2>Horaire des repas</h2>
-					
-						<div class="right-wrapper pull-right">
-							<ol class="breadcrumbs">
-								<li>
-									<a href="index.xhtml">
-										<i class="fa fa-home"></i>
-									</a>
-								</li>
-								<li><span>Paramétrage</span></li>
-								<li><span>Intervalles des repas</span></li>
-							</ol>
-					
-							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
-						</div>
-					</header>
-                                            <h:form id="summary-form"  class="form-horizontal col-md-12">
-								<section class="panel">
-									<header class="panel-heading">
-										<div class="panel-actions">
-											<a href="#" class="fa fa-caret-down"></a>
-											<a href="#" class="fa fa-times"></a>
-										</div>
+                        <h2>Horaire des repas</h2>
 
-										<h2 class="panel-title">Horaire des repas</h2>
-										
-									</header>
-									<div class="panel-body">
-										<div class="validation-message">
-											<ul></ul>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Heure du début: <span class="required">*</span></label>
-											<div class="col-sm-9">
-                                                                                            <h:inputText styleClass="datepicker form-control" id="heureDebut" value="#{intervalleRepasController.selected.heureDebut}" title="" >
-                                                                                            <f:passThroughAttribute name="data-plugin-timepicker" value="" />
-                                                                                              <f:passThroughAttribute name="data-plugin-options" value='{ "showMeridian": false }' />
-                                                                                             <f:convertDateTime pattern="HH:mm" />
-                                                                                            </h:inputText>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Heure de fin: <span class="required">*</span></label>
-											<div class="col-sm-9">
-                                                                                            <h:inputText styleClass="datepicker form-control" id="heureFin" value="#{intervalleRepasController.selected.heureFin}" title="" >
-                                                                                            <f:passThroughAttribute name="data-plugin-timepicker" value="" />
-                                                                                              <f:passThroughAttribute name="data-plugin-options" value='{ "showMeridian": false }' />
-                                                                                             <f:convertDateTime pattern="HH:mm" />
+                        <div class="right-wrapper pull-right">
+                            <ol class="breadcrumbs">
+                                <li>
+                                    <a href="index.xhtml">
+                                        <i class="fa fa-home"></i>
+                                    </a>
+                                </li>
+                                <li><span>Paramétrage</span></li>
+                                <li><span>Intervalles des repas</span></li>
+                            </ol>
 
-                                                                                            </h:inputText>
-											</div>
-										</div>
-										
-										
-									</div>
-									<footer class="panel-footer">
-										<div class="row">
-											<div class="col-sm-9 col-sm-offset-3">
-												 <h:commandButton class="btn btn-primary" action="#{intervalleRepasController.update}" value="Modifier" />
-                                                                                                
-                                                                                        </div>
-										</div>
-									</footer>
-								</section>
-							</h:form>
+                            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+                        </div>
+                    </header>
+                    <h:form id="summary-form"  class="form-horizontal col-md-12">
+                        <section class="panel  panel-featured panel-featured-primary">
+                            <header class="panel-heading">
+                                <div class="panel-actions">
+                                    <a href="#" class="fa fa-caret-down"></a>
+                                    
+                                </div>
+
+                                <h2 class="panel-title">Horaire des repas</h2>
+
+                            </header>
+                            <div class="panel-body">
+                                <div class="validation-message">
+                                    <ul></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Heure du début: <span class="required">*</span></label>
+                                    <div class="col-sm-4">
+                                        <h:inputText styleClass="datepicker form-control" id="heureDebut" value="#{intervalleRepasController.selected.heureDebut}" title="" >
+                                            <f:passThroughAttribute name="data-plugin-timepicker" value="" />
+                                            <f:passThroughAttribute name="data-plugin-options" value='{ "showMeridian": false }' />
+                                            <f:convertDateTime pattern="HH:mm" />
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Heure de fin: <span class="required">*</span></label>
+                                    <div class="col-sm-4">
+                                        <h:inputText styleClass="datepicker form-control" id="heureFin" value="#{intervalleRepasController.selected.heureFin}" title="" >
+                                            <f:passThroughAttribute name="data-plugin-timepicker" value="" />
+                                            <f:passThroughAttribute name="data-plugin-options" value='{ "showMeridian": false }' />
+                                            <f:convertDateTime pattern="HH:mm" />
+
+                                        </h:inputText>
+                                    </div>
+                                </div>
 
 
-</section>
-                
+                            </div>
+                            <footer class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-9 col-sm-offset-5">
+                                        <h:commandButton class="btn btn-primary" action="#{intervalleRepasController.update}" value="Modifier" />
+
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                    </h:form>
+
+
+                </section>
+
             </div>
-            
 
 
-<!-- Vendor -->
-		<script src="../../resources/assets/vendor/jquery/jquery.js"></script>
-		<script src="../../resources/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-		<script src="../../resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="../../resources/assets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="../../resources/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-		<script src="../../resources/assets/vendor/magnific-popup/magnific-popup.js"></script>
-		<script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-		
-                
-		<!-- Specific Page Vendor -->
-		<script src="../../resources/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
-		<script src="../../resources/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
-		<script src="../../resources/assets/vendor/fullcalendar/lib/moment.min.js"></script>
-		<script src="../../resources/assets/vendor/fullcalendar/fullcalendar.js"></script>
-		
-		<!-- Theme Base, Components and Settings -->
-		<script src="../../resources/assets/javascripts/theme.js"></script>
-		
-		<!-- Theme Custom -->
-		<script src="../../resources/assets/javascripts/theme.custom.js"></script>
-		
-		<!-- Theme Initialization Files -->
-		<script src="../../resources/assets/javascripts/theme.init.js"></script>
 
-		
+            <!-- Vendor -->
+            <script src="../../resources/assets/vendor/jquery/jquery.js"></script>
+            <script src="../../resources/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+            <script src="../../resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
+            <script src="../../resources/assets/vendor/nanoscroller/nanoscroller.js"></script>
+            <script src="../../resources/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+            <script src="../../resources/assets/vendor/magnific-popup/magnific-popup.js"></script>
+            <script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+
+            <!-- Specific Page Vendor -->
+            <script src="../../resources/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+            <script src="../../resources/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+            <script src="../../resources/assets/vendor/fullcalendar/lib/moment.min.js"></script>
+            <script src="../../resources/assets/vendor/fullcalendar/fullcalendar.js"></script>
+
+            <!-- Theme Base, Components and Settings -->
+            <script src="../../resources/assets/javascripts/theme.js"></script>
+
+            <!-- Theme Custom -->
+            <script src="../../resources/assets/javascripts/theme.custom.js"></script>
+
+            <!-- Theme Initialization Files -->
+            <script src="../../resources/assets/javascripts/theme.init.js"></script>
+
+
 
         </section>
     </body>

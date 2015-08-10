@@ -196,11 +196,11 @@
 						</div>
 					</header>
                                             <h:form id="summary-form"  class="form-horizontal col-md-12">
-								<section class="panel">
+								<section class="panel  panel-featured panel-featured-primary">
 									<header class="panel-heading">
 										<div class="panel-actions">
 											<a href="#" class="fa fa-caret-down"></a>
-											<a href="#" class="fa fa-times"></a>
+											
 										</div>
 
 										<h2 class="panel-title">Taux appliqué pour chaque puissance fiscale</h2>
@@ -213,14 +213,16 @@
 											<ul></ul>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-3 control-label">La puissance fiscale: <span class="required">*</span></label>
-											<div class="col-sm-9">
-												  <h:inputText class="form-control" id="pf" value="#{correspondpfController.selected.pf}" title="#{bundle.CreateCorrespondrepasRequiredMessage_echelle}" />
+											<label class="col-sm-5 control-label">La puissance fiscale: <span class="required">*</span></label>
+											<div class="col-sm-4">
+												  <h:inputText class="form-control" id="pf" value="#{correspondpfController.selected.pf}" title="#{bundle.CreateCorrespondrepasRequiredMessage_echelle}" >
+                                                                                                      <f:passThroughAttribute name="readonly" value="readonly" />
+                                                                                                  </h:inputText>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Taux: <span class="required">*</span></label>
-											<div class="col-sm-9">
+											<label class="col-sm-5 control-label">Taux: <span class="required">*</span></label>
+											<div class="col-sm-4">
 												  <h:inputText class="form-control" id="taux" value="#{correspondpfController.selected.taux}" title="#{bundle.CreateCorrespondrepasTitle_taux15}" />
 											</div>
 										</div>
@@ -229,7 +231,7 @@
 									</div>
 									<footer class="panel-footer">
 										<div class="row">
-											<div class="col-sm-9 col-sm-offset-3">
+											<div class="col-sm-9 col-sm-offset-5">
 												 <h:commandButton class="btn btn-primary" action="#{correspondpfController.update}" value="Modifier" />
                                                                                                 
                                                                                         </div>

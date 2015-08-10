@@ -22,7 +22,7 @@ import javax.faces.model.SelectItem;
 @ManagedBean(name = "intervalleRepasController")
 @SessionScoped
 public class IntervalleRepasController implements Serializable {
-
+    private String nomRepas;
     private IntervalleRepas current;
     private DataModel items = null;
     @EJB
@@ -187,6 +187,12 @@ public class IntervalleRepasController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+    public String getNomRepas() {
+        nomRepas="3cha";
+        if(current.getIdRepas()==1) nomRepas="ftour";
+        if(current.getIdRepas()==2) nomRepas="ghda";
+        return nomRepas; 
     }
     
     @FacesConverter(forClass = IntervalleRepas.class)
