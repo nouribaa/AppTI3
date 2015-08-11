@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -38,7 +39,6 @@ public class Voiture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idVoiture")
     private Integer idVoiture;
     @Size(max = 50)
@@ -48,7 +48,7 @@ public class Voiture implements Serializable {
     @Column(name = "marque")
     private String marque;
     @JoinColumn(name = "personne", referencedColumnName = "idPerson")
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false)
     private Personnel personne;
     @JoinColumn(name = "pf", referencedColumnName = "pf")
     @ManyToOne(optional = false)

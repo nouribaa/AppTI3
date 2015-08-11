@@ -76,7 +76,9 @@ public class VoitureController implements Serializable {
     public String prepareCreate() {
         current = new Voiture();
         selectedItemIndex = -1;
-        return "Create";
+        recreatePagination();
+        recreateModel();
+        return "List";
     }
 
     public String create() {
@@ -96,11 +98,18 @@ public class VoitureController implements Serializable {
         return "Edit";
     }
 
+     public String linkCreate() {
+        current = new Voiture();
+        selectedItemIndex = -1;
+        return "Create";
+    }
     public String update() {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("VoitureUpdated"));
-            return "View";
+              recreatePagination();
+            recreateModel();
+            return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
@@ -180,6 +189,12 @@ public class VoitureController implements Serializable {
         return "List";
     }
 
+       public void reinit() {
+     current = new Voiture();
+            selectedItemIndex = -1;
+        
+    }
+       
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
