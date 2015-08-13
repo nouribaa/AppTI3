@@ -6,6 +6,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -41,8 +42,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "OrdreMission.findByObjetMission", query = "SELECT o FROM OrdreMission o WHERE o.objetMission = :objetMission"),
     @NamedQuery(name = "OrdreMission.findByMoyenTransport", query = "SELECT o FROM OrdreMission o WHERE o.moyenTransport = :moyenTransport"),
     @NamedQuery(name = "OrdreMission.findByKilometres", query = "SELECT o FROM OrdreMission o WHERE o.kilometres = :kilometres"),
+    @NamedQuery(name = "OrdreMission.findByTrima", query = "SELECT o FROM OrdreMission o WHERE o.trim1 = :trim"),
     @NamedQuery(name = "OrdreMission.findByNum", query = "SELECT o FROM OrdreMission o WHERE o.num = :num")})
 public class OrdreMission implements Serializable {
+    @Size(max = 100)
+    @Column(name = "moyenTransport")
+    private String moyenTransport;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,8 +70,6 @@ public class OrdreMission implements Serializable {
     @Size(max = 150)
     @Column(name = "objetMission")
     private String objetMission;
-    @Column(name = "moyenTransport")
-    private Integer moyenTransport;
     @Column(name = "kilometres")
     private Float kilometres;
     @Size(max = 50)
@@ -86,6 +89,19 @@ public class OrdreMission implements Serializable {
         this.idOrdre = idOrdre;
     }
 
+    public OrdreMission(Integer idordre, Float montant, String ville, Date dateAller, Date heureAller, String objetMission, String moyenTransport, Float kilometres, String num, Personnel person, Trimestre trim1) {
+        this.idOrdre = idordre;
+        this.montant = montant;
+        this.ville = ville;
+        this.dateAller = dateAller;
+        this.heureAller = heureAller;
+        this.objetMission = objetMission;
+        this.moyenTransport = moyenTransport;
+        this.kilometres = kilometres;
+        this.num = num;
+        this.person = person;
+        this.trim1 = trim1;
+    }
     public Integer getIdOrdre() {
         return idOrdre;
     }
@@ -110,18 +126,40 @@ public class OrdreMission implements Serializable {
         this.ville = ville;
     }
 
-    public Date getDateAller() {
-        return dateAller;
+    
+
+   public String getDateAller() {
+        if (dateAller != null) {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+       
+        String formatedDate = sdf.format(dateAller);
+
+            return formatedDate;
+        } else {
+            return null;
+        }
     }
 
     public void setDateAller(Date dateAller) {
         this.dateAller = dateAller;
     }
 
-    public Date getHeureAller() {
-        return heureAller;
-    }
+    public String getHeureAller() {
 
+        if (heureAller!=null) {
+            
+        SimpleDateFormat sdf = new SimpleDateFormat("HH");
+       
+        String formatedDate = sdf.format(heureAller);
+
+
+        return formatedDate+" H";
+        }else {
+            return null;
+        }
+        
+    }
     public void setHeureAller(Date heureAller) {
         this.heureAller = heureAller;
     }
@@ -134,13 +172,6 @@ public class OrdreMission implements Serializable {
         this.objetMission = objetMission;
     }
 
-    public Integer getMoyenTransport() {
-        return moyenTransport;
-    }
-
-    public void setMoyenTransport(Integer moyenTransport) {
-        this.moyenTransport = moyenTransport;
-    }
 
     public Float getKilometres() {
         return kilometres;
@@ -197,6 +228,14 @@ public class OrdreMission implements Serializable {
     @Override
     public String toString() {
         return "beans.OrdreMission[ idOrdre=" + idOrdre + " ]";
+    }
+
+    public String getMoyenTransport() {
+        return moyenTransport;
+    }
+
+    public void setMoyenTransport(String moyenTransport) {
+        this.moyenTransport = moyenTransport;
     }
     
 }

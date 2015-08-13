@@ -18,12 +18,18 @@ import javax.persistence.PersistenceContext;
 public class TrimestreFacade extends AbstractFacade<Trimestre> {
     @PersistenceContext(unitName = "AppTI3PU")
     private EntityManager em;
-
+    
+    
     @Override
     protected EntityManager getEntityManager() {
+        em.flush();
+em.clear();
+em.getEntityManagerFactory().getCache().evictAll();
         return em;
     }
 
+    
+    
     public TrimestreFacade() {
         super(Trimestre.class);
     }

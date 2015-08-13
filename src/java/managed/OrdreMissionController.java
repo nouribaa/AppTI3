@@ -41,7 +41,10 @@ public class OrdreMissionController implements Serializable {
         }
         return current;
     }
-
+public List<OrdreMission> findByTrima(int idTrim){
+    return ejbFacade.FindByTrima(idTrim);
+    
+}
     private OrdreMissionFacade getFacade() {
         return ejbFacade;
     }

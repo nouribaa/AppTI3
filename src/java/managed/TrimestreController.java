@@ -22,6 +22,8 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class TrimestreController implements Serializable {
 
+        private Trimestre current2;
+
     private Trimestre current;
     private DataModel items = null;
     @EJB
@@ -37,7 +39,10 @@ public class TrimestreController implements Serializable {
             current = new Trimestre();
             selectedItemIndex = -1;
         }
-        return current;
+        current2=ejbFacade.find(current.getIdTrim());
+        recreatePagination();
+        recreateModel();
+        return current2;
     }
 
     private TrimestreFacade getFacade() {
@@ -70,7 +75,9 @@ public class TrimestreController implements Serializable {
     public String prepareView() {
         current = (Trimestre) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        return "View";
+        recreatePagination();
+        recreateModel();
+        return "Listordre?faces-redirect=true";
     }
 
     public String prepareCreate() {
@@ -78,7 +85,7 @@ public class TrimestreController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-
+    
     public String create() {
         try {
             getFacade().create(current);
@@ -91,9 +98,11 @@ public class TrimestreController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Trimestre) getItems().getRowData();
-        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        return "Edit";
+          
+        recreatePagination();
+        recreateModel();
+        
+        return "List";
     }
 
     public String update() {

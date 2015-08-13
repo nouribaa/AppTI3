@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" class="fixed sidebar-left-collapsed"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <!-- Basic -->
+        <meta charset="UTF-8"></meta>
+
+        <title>Table</title>
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ></meta>
+
+        <!-- Web Fonts  -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css"></link>
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="../../resources/assets/vendor/bootstrap/css/bootstrap.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/font-awesome/css/font-awesome.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/magnific-popup/magnific-popup.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/bootstrap-datepicker/css/datepicker3.css" ></link>
+
+        <!-- Specific Page Vendor CSS -->
+        <link rel="stylesheet" href="../../resources/assets/vendor/select2/select2.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.css" ></link>
+        <link rel="stylesheet" href="../../resources/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" ></link>
+
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="../../resources/assets/stylesheets/theme.css" ></link>
+
+        <!-- Skin CSS -->
+        <link rel="stylesheet" href="../../resources/assets/stylesheets/skins/default.css" ></link>
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="../../resources/assets/stylesheets/theme-custom.css"></link>
+
+
+
+        <!-- Head Libs -->
+        <script src="../../resources/assets/vendor/modernizr/modernizr.js"></script>
+
+
+
+    </h:head>
+
+
+
+    <body>
+
+
+
+        <section class="body">
+
+            <!-- start: header -->
+            <header class="header">
+                <div class="logo-container">
+                    <a href="../" class="logo">
+                        <img src="../../resources/assets/images/logo3.png" height="35" alt="IMANOR" ></img>
+                    </a>
+                    <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <!-- start: search & user box -->
+                <div class="header-right">
+
+                    <form action="pages-search-results.html" class="search nav-form">
+                        <div class="input-group input-search">
+                            <input type="text" class="form-control" name="q" id="q" placeholder="Recherche..."></input>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <span class="separator"></span>
+
+                    <div id="userbox" class="userbox">
+                        <a href="#" data-toggle="dropdown">
+                            <figure class="profile-picture">
+                                <img src="../../resources/assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+                            </figure>
+                            <div class="profile-info" data-lock-name="" data-lock-email="">
+                                <span class="name">Responsable RH</span>
+                                <span class="role">administrateur</span>
+                            </div>
+
+                            <i class="fa custom-caret"></i>
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <ul class="list-unstyled">
+                                <li class="divider"></li>
+                                <li>
+                                    <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Déconnexion</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: search & user box -->
+            </header>
+            <!-- end: header -->
+
+            <div class="inner-wrapper">
+                <!-- start: sidebar -->
+                <aside id="sidebar-left" class="sidebar-left">
+
+                    <div class="sidebar-header">
+                        <div class="sidebar-title">
+                            Menu
+                        </div>
+                        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                        </div>
+                    </div>
+
+                    <div class="nano">
+                        <div class="nano-content">
+                            <nav id="menu" class="nav-main" role="navigation">
+                                <ul class="nav nav-main">
+                                    <li>
+                                        <a href="header2.html">
+                                            <i class="fa fa-home" aria-hidden="true"></i>
+                                            <span>Accueil</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailbox-folder.html">
+                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                            <span>Gestion du personnel</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="table.html">
+                                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                                            <span>Gestion des ordres de mission</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-parent">
+                                        <a>
+                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                            <span>Paramétrage</span>
+                                        </a>
+                                        <ul class="nav nav-children">
+                                            <li>
+                                                <a href="pages-signup.html">
+                                                    Gestion du calendrier
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="pages-signin.html">
+                                                    Montant des repas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="pages-recover-password.html">
+                                                    Horaires des repas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="pages-lock-screen.html">
+                                                    Taux d’indemnités kilométriques
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>    
+                                </ul>
+                            </nav>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+                <!-- end: sidebar -->
+
+
+
+
+
+
+                <section role="main" class="content-body">
+                    <header class="page-header">
+                        <h2>Page</h2>
+
+                        <div class="right-wrapper pull-right">
+                            <ol class="breadcrumbs">
+                                <li>
+                                    <a href="index.html">
+                                        <i class="fa fa-home"></i>
+                                    </a>
+                                </li>
+                                <li><span>Accueil</span></li>
+                                <li><span>Page</span></li>
+                            </ol>
+
+                            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+                        </div>
+                    </header>
+
+                    <!-- start: page -->
+                    <!-- start: page -->
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="#" class="fa fa-caret-down"></a>
+
+                            </div>
+
+                            <h2 class="panel-title">Default</h2>
+                        </header>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-md">
+                                        <button id="addToTable" class="btn btn-primary">Ajouter <i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+                                <thead>
+                                    <tr>
+                                        <th>Matricule</th>
+                                        <th>Montant</th>
+                                        <th>Ville</th>
+                                        <th>Date d'aller</th>
+                                        <th>Heure d'aller</th>
+                                        <th>Objet de mission</th>
+                                        <th>Moyen de transport</th>
+                                        <th>Kilomètres</th>
+                                        <th>Indemnité kilom</th>
+
+
+
+                                        <th>Options</th>
+
+<!--                                        <th>Fichiers</th>-->
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="#{ordreMissionController.all}" var="ordre" >
+                                        <tr class="gradeX">
+                                            <td>${ordre.person}</td>
+                                            <td>${ordre.montant} </td>
+                                            <td>${ordre.ville}</td>
+                                            <td> <h:outputText value="#{ordre.dateAller}">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                </h:outputText>
+                                            </td>
+                                            <td> <h:outputText value="#{ordre.heureAller}">
+                                                    <f:convertDateTime pattern="HH:mm:ss" />
+                                                </h:outputText>
+                                            </td>
+                                            <td>${ordre.objetMission}</td>
+                                            <td>${ordre.moyenTransport}</td>
+                                            <td>${ordre.kilometres}</td>
+                                            <td id="indkilo" ordre="${ordre.person.voiture.pf.taux}" ><c:if test="#{ordre.kilometres!=null}">
+
+
+                                                    ${ordre.person.voiture.pf.taux*ordre.kilometres*2}
+                                                </c:if>
+                                            </td>
+
+
+
+
+
+                                            <td class="actions">
+                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                                <a href="#" id="edit" ordre="${ordre.idOrdre}" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+
+                                            </td>
+
+<!--                                            <td class="pdf">
+
+                                                <a href="#" ><i class="fa fa-file-pdf-o"></i></a>
+                                                <a href="#" ><i class="fa fa-file-pdf-o"></i></a>
+
+                                            </td>-->
+                                        </tr>
+
+                                    </c:forEach>     
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <!-- end: page -->
+
+                    <!-- end: page -->
+                </section>
+            </div>
+
+
+
+            <div id="dialog" class="modal-block mfp-hide">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Are you sure?</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="modal-wrapper">
+                            <div class="modal-text">
+                                <p>Are you sure that you want to delete this row?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="dialogConfirm" class="btn btn-primary">Confirm</button>
+                                <button id="dialogCancel" class="btn btn-default">Cancel</button>
+                            </div>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+
+
+
+            <script src="../../resources/assets/vendor/jquery/jquery.js"></script>
+            <script src="../../resources/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+            <script src="../../resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
+            <script src="../../resources/assets/vendor/nanoscroller/nanoscroller.js"></script>
+            <script src="../../resources/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="../../resources/assets/vendor/magnific-popup/magnific-popup.js"></script>
+            <script src="../../resources/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+            <!-- Specific Page Vendor -->
+            <script src="../../resources/assets/vendor/select2/select2.js"></script>
+            <script src="../../resources/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+            <script src="../../resources/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
+            <!-- Theme Base, Components and Settings -->
+            <script src="../../resources/assets/javascripts/theme.js"></script>
+
+            <!-- Theme Custom -->
+            <script src="../../resources/assets/javascripts/theme.custom.js"></script>
+
+            <!-- Theme Initialization Files -->
+            <script src="../../resources/assets/javascripts/theme.init.js"></script>
+
+            <script src="../../resources/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+
+
+            <!-- Examples -->
+            <!--            <script src="../../resources/assets/javascripts/tables/examples.datatables.editable.js"></script>-->
+            <script src="../../resources/assets/javascripts/forms/examples.advanced.form.js" ></script>
+
+            <!--  lib jspdf -->
+
+            <script src="../../resources/jspdf/FileSaver.js" ></script>
+            <script src="../../resources/jspdf/jspdf.js" ></script>
+            <script src="../../resources/jspdf/jspdf.plugin.addimage.js" ></script>
+            <script src="../../resources/jspdf/jspdf.plugin.ie_below_9_shim.js" ></script>
+            <script src="../../resources/jspdf/jspdf.plugin.sillysvgrenderer.js" ></script>
+            <script src="../../resources/jspdf/jspdf.plugin.split_text_to_size.js" ></script>
+            <script src="../../resources/jspdf/jspdf.plugin.standard_fonts_metrics.js" ></script>
+
+
+            <script>
+
+
+                (function ($) {
+
+                    'use strict';
+                    var EditableTable = {
+                        options: {
+                            addButton: '#addToTable',
+                            table: '#datatable-editable',
+                            dialog: {
+                                wrapper: '#dialog',
+                                cancelButton: '#dialogCancel',
+                                confirmButton: '#dialogConfirm',
+                            }
+                        },
+                        initialize: function () {
+                            this
+                                    .setVars()
+                                    .build()
+                                    .events();
+                        },
+                        setVars: function () {
+                            this.$table = $(this.options.table);
+                            this.$addButton = $(this.options.addButton);
+                            // dialog
+                            this.dialog = {};
+                            this.dialog.$wrapper = $(this.options.dialog.wrapper);
+                            this.dialog.$cancel = $(this.options.dialog.cancelButton);
+                            this.dialog.$confirm = $(this.options.dialog.confirmButton);
+                            return this;
+                        },
+                        build: function () {
+                            this.datatable = this.$table.DataTable({
+                                aoColumns: [
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    {"bSortable": false}
+                                ]
+                            });
+                            window.dt = this.datatable;
+                            return this;
+                        },
+                        events: function () {
+                            var _self = this;
+                            this.$table
+                                    .on('click', 'a.save-row', function (e) {
+                                        e.preventDefault();
+                                        _self.rowSave($(this).closest('tr'));
+
+
+                                    })
+                                    .on('click', 'a.cancel-row', function (e) {
+                                        e.preventDefault();
+                                        _self.rowCancel($(this).closest('tr'));
+                                    })
+                                    .on('click', 'a.edit-row', function (e) {
+                                        e.preventDefault();
+                                        _self.rowEdit($(this).closest('tr'));
+
+
+
+                                    })
+                                    .on('click', 'a.remove-row', function (e) {
+                                        e.preventDefault();
+                                        var $row = $(this).closest('tr');
+                                        $.magnificPopup.open({
+                                            items: {
+                                                src: '#dialog',
+                                                type: 'inline'
+                                            },
+                                            preloader: false,
+                                            modal: true,
+                                            callbacks: {
+                                                change: function () {
+                                                    _self.dialog.$confirm.on('click', function (e) {
+                                                        e.preventDefault();
+                                                        _self.rowRemove($row);
+                                                        $.magnificPopup.close();
+                                                    });
+                                                },
+                                                close: function () {
+                                                    _self.dialog.$confirm.off('click');
+                                                }
+                                            }
+                                        });
+                                    });
+                            this.$addButton.on('click', function (e) {
+                                e.preventDefault();
+                                _self.rowAdd();
+                            });
+                            this.dialog.$cancel.on('click', function (e) {
+                                e.preventDefault();
+                                $.magnificPopup.close();
+                            });
+                            return this;
+                        },
+                        // ==========================================================================================
+                        // ROW FUNCTIONS
+                        // ==========================================================================================
+                        rowAdd: function () {
+                            this.$addButton.attr({'disabled': 'disabled'});
+
+
+
+                            var actions,
+                                    data,
+                                    $row;
+                            actions = [
+                                '<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>',
+                                '<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>',
+                                '<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>',
+                                '<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>'
+                            ].join(' ');
+//
+//                    
+
+
+                            data = this.datatable.row.add(['', '', '', '', '', '', '', '', '', actions]);
+                            $row = this.datatable.row(data[0]).nodes().to$();
+                            $row
+                                    .addClass('adding')
+                                    .find('td:last')
+                                    .addClass('actions');
+                            this.rowEdit($row);
+                            this.datatable.order([0, 'asc']).draw(); // always show fields
+                        },
+                        rowCancel: function ($row) {
+                            var _self = this,
+                                    $actions,
+                                    i,
+                                    data;
+                            if ($row.hasClass('adding')) {
+                                this.rowRemove($row);
+                            } else {
+
+                                data = this.datatable.row($row.get(0)).data();
+                                this.datatable.row($row.get(0)).data(data);
+                                $actions = $row.find('td.actions');
+                                if ($actions.get(0)) {
+                                    this.rowSetActionsDefault($row);
+                                }
+
+                                this.datatable.draw();
+                            }
+                        },
+                        rowEdit: function ($row) {
+                            var _self = this,
+                                    data;
+                            data = this.datatable.row($row.get(0)).data();
+                            $row.find('td:nth-child(1)').html('<select class="form-control populate"><c:forEach var="matr" items="#{personnelController.all}" ><option value="${matr.matricule}">${matr.matricule}</option></c:forEach></select>');
+                            $row.find('td:nth-child(2)').html('<input type="text" class="form-control input-block" value="' + data[1] + '"/>');
+                            $row.find('td:nth-child(3)').html('<input type="text" class="form-control input-block" value="' + data[2] + '"/>');
+                            $row.find('td:nth-child(4)').html('<input type="text" id="date" class="form-control" value="' + data[3] + '"/>');
+                            $row.find('td:nth-child(5)').html('<input type="text" class="form-control input-block" value="' + data[4] + '"/>');
+                            $row.find('td:nth-child(6)').html('<input type="text" class="form-control input-block" value="' + data[5] + '"/>');
+                            $row.find('td:nth-child(7)').html('<select id="select" onchange="selchange();" class="form-control populate"><option value="Voiture de service">Voiture de service</option><option  value="Voiture personnelle">Voiture personnelle</option></select>');
+                            $row.find('td:nth-child(8)').html('<input id="kilo" type="text" disabled="true" onchange="calc();" class="form-control input-block" value="' + data[7] + '"/>');
+                            $row.find('td:nth-child(9)').html('<input type="text" id="indem" disabled="true" class="form-control input-block" />');
+
+                            _self.rowSetActionsEditing($row);
+
+
+
+//    
+                        },
+                        rowSave: function ($row) {
+                            var attr = document.getElementById("addToTable").getAttribute("disabled");
+
+                            var id = $row.find('a#edit').attr('ordre');
+
+
+
+                            var _self = this,
+                                    $actions,
+                                    values = [];
+                            if ($row.hasClass('adding')) {
+                                this.$addButton.removeAttr('disabled');
+                                $row.removeClass('adding');
+                            }
+
+                            values = $row.find('td').map(function () {
+                                var $this = $(this);
+                                if ($this.hasClass('actions')) {
+                                    _self.rowSetActionsDefault($row);
+                                    return _self.datatable.cell(this).data();
+                                } else {
+                                    if ($this.find('select').attr('class') === 'form-control populate') {
+                                        return $.trim($this.find('select').val());
+                                    }
+                                    else {
+                                        return $.trim($this.find('input').val());
+                                    }
+                                }
+                            });
+
+                            this.datatable.row($row.get(0)).data(values);
+
+                            $actions = $row.find('td.actions');
+
+                            if ($actions.get(0)) {
+                                this.rowSetActionsDefault($row);
+                            }
+
+                            this.datatable.draw();
+
+                            var json = JSON.stringify(values);
+
+
+
+                            $.ajax
+                                    (
+                                            {
+                                                url: '/AppTI1.0/GetOrdre',
+                                                data: {json: json, attr: attr, id: id},
+                                                type: 'post',
+                                                cache: false,
+                                                success: function (data) {
+                                                    alert(data);
+                                                },
+                                                error: function () {
+                                                    alert('error');
+                                                }
+                                            }
+                                    );
+
+
+
+
+
+                        },
+                        rowRemove: function ($row) {
+                            if ($row.hasClass('adding')) {
+                                this.$addButton.removeAttr('disabled');
+                            }
+
+                            var action = "remove";
+
+                            var id = $row.find('a#edit').attr('ordre');
+
+                            this.datatable.row($row.get(0)).remove().draw();
+
+
+                            $.ajax
+                                    (
+                                            {
+                                                url: '/AppTI1.0/GetOrdre',
+                                                data: {id: id, action: action},
+                                                type: 'post',
+                                                cache: false,
+                                                success: function (data) {
+                                                    alert(data);
+                                                },
+                                                error: function () {
+                                                    alert('error');
+                                                }
+                                            }
+                                    );
+
+
+
+
+
+                        },
+                        rowSetActionsEditing: function ($row) {
+                            $row.find('.on-editing').removeClass('hidden');
+                            $row.find('.on-default').addClass('hidden');
+                        },
+                        rowSetActionsDefault: function ($row) {
+                            $row.find('.on-editing').addClass('hidden');
+                            $row.find('.on-default').removeClass('hidden');
+                        }
+
+                    };
+                    $(function () {
+                        EditableTable.initialize();
+                    });
+                }).apply(this, [jQuery]);
+
+            </script>
+
+            <script>
+                function selchange() {
+                    if ($("#select").val() === 'Voiture personnelle') {
+                        document.getElementById("kilo").removeAttribute("disabled");
+                        document.getElementById("indem").removeAttribute("disabled");
+
+
+                    }
+                    else {
+                        if ($("#select").val() === 'Voiture de service') {
+                            document.getElementById("kilo").setAttribute("disabled", "true");
+                            document.getElementById("indem").setAttribute("disabled", "true");
+
+
+                        }
+
+                    }
+
+                }
+                ;
+
+                function calc() {
+//                    var val =document.getElementById("kilo").getAttribute("value");
+
+                    var val = $("#kilo").val();
+
+                    var pf = document.getElementById("indkilo").getAttribute("ordre");
+
+
+
+                    document.getElementById("indem").setAttribute("value", val * pf * 2);
+
+                }
+                ;
+
+            </script>
+
+
+
+
+
+        </section>
+    </body>
+
+</html>

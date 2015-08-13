@@ -6,9 +6,11 @@
 package session;
 
 import beans.OrdreMission;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -23,7 +25,14 @@ public class OrdreMissionFacade extends AbstractFacade<OrdreMission> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
+public void Create(OrdreMission o){
+        em.persist(o);
+    }
+public List<OrdreMission> FindByTrima(int idTrim){
+        Query qr=em.createNamedQuery("OrdreMission.findByTrima");
+        qr.setParameter("trim", idTrim);
+        return qr.getResultList();
+    }
     public OrdreMissionFacade() {
         super(OrdreMission.class);
     }
