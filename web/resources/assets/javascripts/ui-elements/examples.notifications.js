@@ -815,7 +815,7 @@ Theme Version: 	1.3.0
 	$('#position-4-success').click(function() {
 		var notice = new PNotify({
 			title: 'Notification',
-			text: 'Some notification text.',
+			text: utf8.decode('L\'opération s\'est terminée avec succès'),
 			type: 'success',
 			addclass: 'stack-bar-top',
 			stack: stack_bar_top,
@@ -836,8 +836,8 @@ Theme Version: 	1.3.0
 
 	$('#position-4-error').click(function() {
 		var notice = new PNotify({
-			title: 'Notification',
-			text: 'Some notification text.',
+			title: 'Erreur',
+			text: 'une erreur est survenue !!',
 			type: 'error',
 			addclass: 'stack-bar-top',
 			stack: stack_bar_top,

@@ -22,7 +22,6 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class TrimestreController implements Serializable {
 
-        private Trimestre current2;
 
     private Trimestre current;
     private DataModel items = null;
@@ -39,10 +38,7 @@ public class TrimestreController implements Serializable {
             current = new Trimestre();
             selectedItemIndex = -1;
         }
-        current2=ejbFacade.find(current.getIdTrim());
-        recreatePagination();
-        recreateModel();
-        return current2;
+        return current;
     }
 
     private TrimestreFacade getFacade() {
@@ -102,7 +98,7 @@ public class TrimestreController implements Serializable {
         recreatePagination();
         recreateModel();
         
-        return "List";
+        return "Edit";
     }
 
     public String update() {

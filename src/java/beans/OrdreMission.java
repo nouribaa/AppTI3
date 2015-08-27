@@ -121,6 +121,9 @@ public class OrdreMission implements Serializable {
     public String getVille() {
         return ville;
     }
+    public String getVille2() {
+        return ville.replace("\'", "\\\'");
+    }
 
     public void setVille(String ville) {
         this.ville = ville;
@@ -132,6 +135,18 @@ public class OrdreMission implements Serializable {
         if (dateAller != null) {
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+       
+        String formatedDate = sdf.format(dateAller);
+
+            return formatedDate;
+        } else {
+            return null;
+        }
+    }
+   public String getDateAller2() {
+        if (dateAller != null) {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
        
         String formatedDate = sdf.format(dateAller);
 
@@ -154,7 +169,7 @@ public class OrdreMission implements Serializable {
         String formatedDate = sdf.format(heureAller);
 
 
-        return formatedDate+" H";
+        return formatedDate;
         }else {
             return null;
         }
@@ -168,6 +183,10 @@ public class OrdreMission implements Serializable {
         return objetMission;
     }
 
+    public String getObjetMission2() {
+        return objetMission.replace("\'", "\\\'");
+    }
+    
     public void setObjetMission(String objetMission) {
         this.objetMission = objetMission;
     }

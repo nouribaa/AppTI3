@@ -1,0 +1,73 @@
+<ui:composition template="/jsf/header.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="Titre">
+        Trimestres
+    </ui:define>
+    <ui:define name="Page">
+       Les trimestres
+    </ui:define>
+    <ui:define name="Page1">
+        Trimestres
+    </ui:define>
+    
+
+    <ui:define name="body">
+
+         <h:form  class="form-horizontal">
+            <section class="panel  panel-featured panel-featured-primary">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+
+                    </div>
+
+                    <h2 class="panel-title">Ajouter une trimestre</h2>
+
+                </header>
+                <div class="panel-body">
+                    <div class="validation-message">
+                        <ul></ul>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Date début: <span class="required">*</span></label>
+                        <div class="col-sm-4">
+                            <h:inputText class="form-control" id="dateDebut" value="#{trimestreController.selected.dateDebut}" title="" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Date fin: <span class="required">*</span></label>
+                        <div class="col-sm-4">
+                            <h:inputText class="form-control" id="dateFin" value="#{trimestreController.selected.dateFin}" title="" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:inputText>
+                        </div>
+                    </div>
+                    <h:inputText class="form-control" id="etat" value="#{trimestreController.selected.etat}" title="" ></h:inputText>
+                    <h:inputText class="form-control" id="idTrim" value="#{trimestreController.selected.idTrim}" title="" ></h:inputText>
+
+
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-5">
+                            <h:commandButton class="btn btn-primary" action="#{correspondpfController.create}" value="Ajouter" /><b> </b>
+                            <h:commandButton type="reset" class="btn btn-default" action="#{correspondpfController.reinit}" value="Réinitialiser" />
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </h:form>
+        
+        
+        
+        
+        
+        
+    </ui:define>
+</ui:composition> 

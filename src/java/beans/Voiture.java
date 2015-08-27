@@ -80,6 +80,9 @@ public class Voiture implements Serializable {
     public String getMarque() {
         return marque;
     }
+    public String getMarque2() {
+        return marque.replace("\'", "\\\'");
+    }
 
     public void setMarque(String marque) {
         this.marque = marque;

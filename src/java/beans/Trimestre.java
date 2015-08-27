@@ -6,6 +6,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -18,6 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,8 +44,7 @@ public class Trimestre implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @NotNull
+  
     @Column(name = "idTrim")
     private Integer idTrim;
     @Column(name = "dateDebut")
@@ -55,6 +56,7 @@ public class Trimestre implements Serializable {
     @Column(name = "etat")
     private Integer etat;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trim1")
+    @OrderBy("dateAller")
     private Collection<OrdreMission> ordreMissionCollection;
 
     public Trimestre() {
@@ -80,8 +82,18 @@ public class Trimestre implements Serializable {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
-        return dateFin;
+    public String getDateFin() {
+        
+        if (dateFin != null) {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+       
+        String formatedDate = sdf.format(dateFin);
+
+            return formatedDate;
+        } else {
+            return null;
+        }
     }
 
     public void setDateFin(Date dateFin) {

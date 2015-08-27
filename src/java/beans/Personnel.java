@@ -145,9 +145,24 @@ public class Personnel implements Serializable {
     public String getResidence() {
         return residence;
     }
+     public String getResidence2() {
+        return residence.replace("\'", "\\\'");
+    }
 
     public void setResidence(String residence) {
         this.residence = residence;
+    }
+    
+     public String getGrade2() {
+        return grade.replace("\'", "\\\'");
+    }
+    
+     public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     @XmlTransient
@@ -201,13 +216,7 @@ public class Personnel implements Serializable {
         return nom+" "+prenom;
     }
 
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
+   
     	
     
 }
